@@ -1,17 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, SafeAreaView, Platform } from 'react-native';
+import { StyleSheet, SafeAreaView, View } from 'react-native';
+
+import WelcomeScreen from './app/screens/WelcomeScreen';
 
 export default function App() {
-	return <SafeAreaView style={styles.container}></SafeAreaView>;
+	return <WelcomeScreen />;
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: 'black',
-	},
-	setColorWhite: {
-		color: 'white',
-	},
-});
