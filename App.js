@@ -8,5 +8,5 @@ import AppText from './app/components/AppText';
 import AppButton from './app/components/AppButton';
 
 export default function App() {
-	return <ListingDetailsScreen />;
+	return <ViewImageScreen />;
 }
