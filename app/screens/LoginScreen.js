@@ -21,6 +21,7 @@ function LoginScreen(props) {
 				keyboardType="email-address"
 				placeholder="Email"
 				textContentType="email"
+				onChangeText={(text) => setEmail(text)}
 			/>
 			<AppTextInput
 				autoCapitalize="none"
@@ -30,10 +31,11 @@ function LoginScreen(props) {
 				placeholder="Password"
 				secureTextEntry
 				textContentType="password"
+				onChangeText={(text) => setPassword(text)}
 			/>
 			<AppButton
 				title="Login"
-				onPress={() => console.log('login tapped')}
+				onPress={() => console.log(email, password)}
 			/>
 		</Screen>
 	);
