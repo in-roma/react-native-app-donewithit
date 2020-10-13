@@ -18,6 +18,12 @@ const listings = [
 		price: 1000,
 		image: require('../assets/couch.jpg'),
 	},
+	{
+		id: 3,
+		title: 'red jacket for sale',
+		price: 10000,
+		image: require('../assets/jacket.jpg'),
+	},
 ];
 
 function ListingsScreen(props) {
@@ -40,7 +46,7 @@ function ListingsScreen(props) {
 const styles = StyleSheet.create({
 	screen: {
 		padding: 20,
-		backgroundColor: colors.listings,
+		backgroundColor: colors.light,
 	},
 });
 

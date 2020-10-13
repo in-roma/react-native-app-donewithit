@@ -12,9 +12,10 @@ import AccountScreen from './app/screens/AccountScreen';
 
 import Screen from './app/components/Screen';
 import AppText from './app/components/AppText';
+import AppTextInput from './app/components/AppTextInput';
 import AppButton from './app/components/AppButton';
 import Icon from './app/components/Icon';
 
 export default function App() {
-	return <ListingsScreen />;
+	return <AppTextInput placeholder="email" icon="email" />;
 }
