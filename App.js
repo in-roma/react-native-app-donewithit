@@ -13,9 +13,15 @@ import AccountScreen from './app/screens/AccountScreen';
 import Screen from './app/components/Screen';
 import AppText from './app/components/AppText';
 import AppTextInput from './app/components/AppTextInput';
+import AppPicker from './app/components/AppPicker';
 import AppButton from './app/components/AppButton';
 import Icon from './app/components/Icon';
 
 export default function App() {
-	return <AppTextInput placeholder="email" icon="email" />;
+	return (
+		<Screen>
+			<AppPicker icon="apps" placeholder="Category" />
+			<AppTextInput icon="email" placeholder="Email" />
+		</Screen>
+	);
 }
