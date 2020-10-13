@@ -1,14 +1,11 @@
 import React from 'react';
 import { StyleSheet, Image } from 'react-native';
-import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 import Screen from '../components/Screen';
-import ErrorMessage from '../components/ErrorMessage';
-import AppText from '../components/AppText';
-import AppTextInput from '../components/AppTextInput';
 import SubmitButton from '../components/SubmitButton';
 import AppFormField from '../components/AppFormField';
+import AppForm from '../components/AppForm';
 
 const validationSchema = Yup.object().shape({
 	email: Yup.string().required().email().label('Email'),
@@ -22,35 +19,31 @@ function LoginScreen(props) {
 				style={styles.logo}
 				source={require('../assets/logo-red.png')}
 			/>
-			<Formik
+			<AppForm
 				initialValues={{ email: '', password: '' }}
 				onSubmit={(values) => console.log(values)}
 				validationSchema={validationSchema}
 			>
-				{({}) => (
-					<>
-						<AppFormField
-							name="email"
-							autoCapitalize="none"
-							autoCorrect={false}
-							icon="email"
-							keyboardType="email-address"
-							placeholder="Email"
-							textContentType="email"
-						/>
-						<AppFormField
-							name="password"
-							autoCapitalize="none"
-							autoCorrect={false}
-							icon="lock"
-							placeholder="Password"
-							secureTextEntry
-							textContentType="password"
-						/>
-						<SubmitButton title="login" />
-					</>
-				)}
-			</Formik>
+				<AppFormField
+					name="email"
+					autoCapitalize="none"
+					autoCorrect={false}
+					icon="email"
+					keyboardType="email-address"
+					placeholder="Email"
+					textContentType="email"
+				/>
+				<AppFormField
+					name="password"
+					autoCapitalize="none"
+					autoCorrect={false}
+					icon="lock"
+					placeholder="Password"
+					secureTextEntry
+					textContentType="password"
+				/>
+				<SubmitButton title="login" />
+			</AppForm>
 		</Screen>
 	);
 }
