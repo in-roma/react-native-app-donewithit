@@ -6,8 +6,9 @@ export default {
 	text: {
 		fontSize: 18,
 		fontFamily: Platform.OS === 'android' ? 'Roboto' : 'Avenir',
-		marginLeft: 5,
+		marginLeft: 15,
 		alignItems: 'center',
 		color: colors.dark,
+		width: '100%',
 	},
 };
