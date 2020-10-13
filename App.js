@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, SafeAreaView, View } from 'react-native';
 
 import WelcomeScreen from './app/screens/WelcomeScreen';
@@ -24,9 +24,16 @@ const categories = [
 ];
 
 export default function App() {
+	const [category, setCategory] = useState(categories[0]);
 	return (
 		<Screen>
-			<AppPicker items={categories} icon="apps" placeholder="Category" />
+			<AppPicker
+				selectedItem={category}
+				onSelectItem={(item) => setCategory(item)}
+				icon="apps"
+				items={categories}
+				placeholder="Category"
+			/>
 			<AppTextInput icon="email" placeholder="Email" />
 		</Screen>
 	);
