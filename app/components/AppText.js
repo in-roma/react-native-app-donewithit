@@ -4,7 +4,9 @@ import defaultStyles from '../config/styles';
 
 function AppText(props) {
 	return (
-		<Text style={[defaultStyles.text, props.style]}>{props.children}</Text>
+		<Text style={[defaultStyles.text, props.style]} {...props}>
+			{props.children}
+		</Text>
 	);
 }
 
