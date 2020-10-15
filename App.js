@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import * as ImagePicker from 'expo-image-picker';
-import * as Permissions from 'expo-permissions';
-import { Button, Image, StyleSheet, SafeAreaView, View } from 'react-native';
+import React from 'react';
+import { Text } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
 
-import Screen from './app/components/Screen';
-import ListingEditScreen from './app/screens/ListingEditScreen';
+import AuthNavigator from './app/navigation/AuthNavigator';
 
 export default function App() {
-	return <ListingEditScreen />;
+	return (
+		<NavigationContainer>
+			<AuthNavigator />
+		</NavigationContainer>
+	);
 }
