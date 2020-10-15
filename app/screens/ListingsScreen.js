@@ -4,6 +4,7 @@ import { FlatList, StyleSheet } from 'react-native';
 import Screen from '../components/Screen';
 import Card from '../components/Card';
 import colors from '../config/colors';
+import routes from '../navigation/routes';
 
 const listings = [
 	{
