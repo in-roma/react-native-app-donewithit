@@ -4,16 +4,14 @@ import AppText from '../components/AppText';
 import ListItem from '../components/ListItem';
 import colors from '../config/colors';
 
-function ListingDetailsScreen(props) {
+function ListingDetailsScreen({ route }) {
+	const listing = route.params;
 	return (
 		<View>
-			<Image
-				style={styles.image}
-				source={require('../assets/jacket.jpg')}
-			/>
+			<Image style={styles.image} source={listing.image} />
 			<View style={styles.containerCardText}>
-				<AppText style={styles.cardTitle}>Red Jacket for sale</AppText>
-				<AppText style={styles.cardPrice}>100$</AppText>
+				<AppText style={styles.cardTitle}>{listing.title}</AppText>
+				<AppText style={styles.cardPrice}>${listing.price}</AppText>
 				<View style={styles.userContainer}>
 					<ListItem
 						image={require('../assets/mosh.jpg')}
