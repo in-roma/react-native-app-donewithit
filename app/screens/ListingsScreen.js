@@ -39,7 +39,7 @@ function ListingsScreen({ navigation }) {
 						subtitle={'$' + item.price}
 						image={item.image}
 						onPress={() =>
-							navigation.navigate('ListingDetails', item)
+							navigation.navigate(routes.LISTING_DETAILS, item)
 						}
 					/>
 				)}
