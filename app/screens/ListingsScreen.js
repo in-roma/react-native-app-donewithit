@@ -6,42 +6,34 @@ import AppButton from '../components/AppButton';
 import Card from '../components/Card';
 import colors from '../config/colors';
 import AppText from '../components/AppText';
-import ActivityIndicator from '../components/ActivityIndicator';
+import ActivityIndicatorElement from '../components/ActivityIndicator';
 
 import routes from '../navigation/routes';
 import listingsApi from '../api/listings';
+import useApi from '../hooks/useApi';
 
 function ListingsScreen({ navigation }) {
-	const [listings, setListings] = useState([]);
-	const [error, setError] = useState(false);
-	const [loading, setLoading] = useState(true);
+	const getListingsApi = useApi(listingsApi.getListings);
 
 	useEffect(() => {
-		loadListings();
+		getListingsApi.request();
 	}, []);
-
-	const loadListings = async () => {
-		setLoading(true);
-		const response = await listingsApi.getListings();
-		setLoading(false);
-
-		if (!response.ok) return setError(true);
-
-		setError(false);
-		setListings(response.data);
-	};
 
 	return (
 		<Screen style={styles.screen}>
-			{error && (
+			{getListingsApi.error && (
 				<>
 					<AppText>Coudn't access the server</AppText>
-					<AppButton title="Retry" onPress={loadListings} />
+					<AppButton title="Retry" onPress={getListingsApi.request} />
 				</>
 			)}
-			<ActivityIndicator visible={true} />
+			<ActivityIndicatorElement
+				visible={getListingsApi.loading}
+				animating={true}
+				size="large"
+			/>
 			<FlatList
-				data={listings}
+				data={getListingsApi.data}
 				keyExtractor={(listing) => listing.id.toString()}
 				renderItem={({ item }) => (
 					<Card

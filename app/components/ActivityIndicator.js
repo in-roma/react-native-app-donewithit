@@ -1,15 +1,9 @@
 import React from 'react';
-import LottieView from 'lottie-react-native';
+import { FlatList, StyleSheet, ActivityIndicator } from 'react-native';
 
-function ActivityIndicator({ visible = false }) {
+function ActivityIndicatorElement({ visible = false, animating, size }) {
 	if (!visible) return null;
-	return (
-		<LottieView
-			autoplay
-			loop
-			source={require('../assets/animation/loader.json')}
-		/>
-	);
+	return <ActivityIndicator />;
 }
 
-export default ActivityIndicator;
+export default ActivityIndicatorElement;
